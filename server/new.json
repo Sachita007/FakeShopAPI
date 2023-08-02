@@ -1,0 +1,94 @@
+[
+  {
+    "id": 15,
+    "brand": "Microsoft",
+    "name": "Microsoft Surface Pro 8",
+    "category": "Tablets",
+    "description": "A versatile 2-in-1 laptop with a 13” touchscreen and more connections",
+    "price": 1000,
+    "images": [
+      "https://lh3.googleusercontent.com/bip/APOwr83pezDSWznH3meP8mHu73kuYbz4ESI-XjlqFTCULhz0E5sOih427TRYMZkQWpUmWSJsN-hrZfB2baH7btWIxG11-3FW9L8gON4G4qIRLLlFBNCYxJ-OIw=w250-h200-p"
+    ]
+  },
+  {
+    "id": 16,
+    "brand": "Sony",
+    "name": "Sony WH-1000XM4",
+    "category": "Headphones",
+    "description": "Industry-leading noise canceling with Dual Noise Sensor technology",
+    "price": 350,
+    "images": [
+      "https://lh3.googleusercontent.com/bip/APOwr813CRnc4HdZIsh9c2SPvu2eeU1AgaRXtTKB2TflmSxR7xhb3fPUYZO1kAwAMsDwk2UWDbRevHGm8rrMcN0YbC8LHrwaQgmtw2Jrjy89_R0y4NQoC9nrZswYNrDLWCj3rVn9K8mny8lCVRl-sNl_fGN40_KF_78_m73eZCmpUQpdaIVjjt-m=w250-h200-p"
+    ]
+  },
+  {
+    "id": 17,
+    "brand": "Nikon",
+    "name": "Nikon Z6 II",
+    "category": "Cameras",
+    "description": "High-speed and high-resolution camera with dual EXPEED 6 image processors",
+    "price": 2000,
+    "images": [
+      "https://lh3.googleusercontent.com/bip/APOwr80Q58DobVrQru5iWnbWlyOWlIlXKRvsEHxscHCqBDHzKRJal_5iCKTADIzEjwr7c0CivqzZnM4eEA4oPeF0_RTov384vNvUUTnrd4z6x6d054sUtuwklXt8TZDvZyYCQXHY70Dc-a1onRrWBxQ=w250-h200-p",
+      "https://lh3.googleusercontent.com/bip/APOwr82m50fCusH4SZ4uiNIB_YTMRpbvznXBS3j1vr5KgaIxW2WPYM38nZKwA8cwKC32L-6HnuwvLEQ3ZbBCGaNvPZxpYOICB23kht_ODmi2LxroukrQQD6eiAHCB5gvG26_K4mhNRrTAw=w250-h200-p"
+    ]
+  },
+  {
+    "id": 18,
+    "brand": "Asus",
+    "name": "Asus ROG Strix G15",
+    "category": "Laptops",
+    "description": "Gaming laptop featuring powerful AMD Ryzen processors and NVIDIA GeForce RTX 30 Series graphics",
+    "price": 1500,
+    "images": [
+     "https://lh3.googleusercontent.com/bip/APOwr81Q11mHGKUTnliur7mByb6WzlLxfi9bQSSg5oeR-p65gzRIlPNHqnNkyK_z3rFnnn3Mp8p0wAFwa0LDSmwt4TOiZ3HTSYbqe1lea7eh6MIoadNHLpZJxQMyL2oE4Via4y828nZMOTW4-9rwp9Z5vpYueEUjBLp9F3w86VuBy_UGr_MoBW71OFTsW9M21ZjuslONvqRCHVNHHqMArA0=w250-h200-p",
+     "https://lh3.googleusercontent.com/bip/APOwr81PI1EBLjxacJzMZONh7O2Vhu6ELF3gkOXdcYT5WCk3_69S_ltR9_WtepVjOBg6sAQxjP7DE9Qa7Z-VPrtfx47ri_Jn7rUiWKBAEya6WwFpkSgI3IChTedR4pXUKVzoCdfyCrK3BNJcc2QhMyE=w250-h200-p"
+    ]
+  },
+  {
+    "id": 19,
+    "brand": "LG",
+    "name": "LG C1 OLED TV",
+    "category": "Televisions",
+    "description": "4K Smart OLED TV with AI ThinQ, Dolby Vision, and Dolby Atmos",
+    "price": 1800,
+    "images": [
+      "https://lh3.googleusercontent.com/bip/APOwr80yyR4j1jypDFQFGel16jTYpe0nQ6XaSSCGyUnB90lz2M6eVxIkVXN1d0uyk8heQA7sG4KbjHV1my4pauWF700vMiBVTdXtm1ihjAoP6d4164Ym9so_a9uLPDXoQotjs_n7T74HXR8kpNLkB2ux=w250-h200-p"
+    ]
+  },
+  {
+    "id": 20,
+    "brand": "Bose",
+    "name": "Bose Soundbar 700",
+    "category": "Audio",
+    "description": "Premium soundbar with unmatched sound and a design to match your home",
+    "price": 800,
+    "images": [
+      "https://lh3.googleusercontent.com/bip/APOwr835WyGPGSYhx3wHutE0ZkNxlbA5npb99xWU8RZY9ASgL8BZ9on9iX9M37oERchB_5DLj-KyV6u65zfC-A2jXNd14wmMyrJMZOUNjGhNw6cPb52Jrh-mCV8Bl55-LdHikZSWiVjKHEWRMa_hf7ootcahrqgdJVjP4l2QgZpitRCYFyeQToZK=w250-h200-p"
+    ]
+  },
+  {
+    "id": 21,
+    "brand": "Fitbit",
+    "name": "Fitbit Charge 5",
+    "category": "Wearable Tech",
+    "description": "Advanced fitness tracker with built-in GPS, stress tracking, and up to 7 days of battery life",
+    "price": 180,
+    "images": [
+      "http://images.example.com/fitbit_charge5_1.jpg",
+      "http://images.example.com/fitbit_charge5_2.jpg",
+      "http://images.example.com/fitbit_charge5_3.jpg"
+    ]
+  },
+  {
+    "id": 22,
+    "brand": "Amazon",
+    "name": "Amazon Kindle Paperwhite",
+    "category": "E-readers",
+    "description": "Waterproof e-reader with a 300 ppi flush-front design and 8GB or 32GB capacity",
+    "price": 130,
+    "images": [
+      "https://lh3.googleusercontent.com/bip/APOwr81lpS_JjImWI4tMI9SuK_5aPX4vyQvOwzb5QZw8Lt9fY8h57KuTkK5wQbElUr2xN9sQIljYhSAYMWukywC7LqYacYrPQ-MT4PnjTcbMb76Tjp6XhV2dT9Cz2DpeE_BIJ_QFr9MIS8ITOLHLNRw=w250-h200-p"
+    ]
+  }
+]
