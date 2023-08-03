@@ -21,7 +21,7 @@ exports.getAllUsers = tryCatch(async (req, res) => {
 
 // Get user By Id
 exports.getUser = tryCatch(async (req, res, next) => {
-    const id = req.params.id;
+    const id = req.params.id || req.user._id;
     const user = await User.findById(id).select('-isAdmin');
     if (!user) {
         return next(new AppError("No User found with this id", 404))
@@ -46,6 +46,61 @@ exports.addUser = tryCatch(async (req, res, next) => {
     delete body.isAdmin
     const user = await User.create(body)
 
+    res.status(200).json({
+        status: "success",
+        data: {
+            id: user._id,
+            name: user.name,
+            email: user.email,
+            password: user.password,
+            address: user.address,
+            photo: user.photo
+        }
+    })
+})
+
+
+// Edit User
+exports.updateUser = tryCatch(async (req, res, next) => {
+    const id = req.params.id
+    const data = await User.findById(id)
+    if (data?.isAdmin) {
+        return next(new AppError("Unauthorized:This user is not available for updating; instead, create your own user to update.", 401))
+    }
+    const body = req.body
+    delete body.isAdmin
+    const user = await User.findByIdAndUpdate(req.params.id, req.body, {
+        new: true,
+        runValidators: true
+    })
+
+    if (!user) {
+        return next(new AppError("No user found with this id", 404))
+    }
+    res.status(200).json({
+        status: "success",
+        data: {
+            id: user._id,
+            name: user.name,
+            email: user.email,
+            password: user.password,
+            address: user.address,
+            photo: user.photo
+        }
+    })
+})
+
+exports.deleteUser = tryCatch(async (req, res, next) => {
+    const id = req.params.id
+    const data = await User.findById(id)
+    if (data?.isAdmin) {
+        return next(new AppError("Unauthorized:This user is not available for deleting; instead, create your own user to update.", 401))
+    }
+
+    const user = await User.findByIdAndDelete(id);
+    if (!user) {
+        return next(new AppError("No user found with this id", 404))
+    }
     res.status(200).json({
         status: "success",
         data: {

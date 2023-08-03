@@ -4,6 +4,7 @@ const productController = require("./controllers/productController")
 const globalErrorHandler = require('./controllers/errorController')
 const productRouter = require("./routes/productRouter")
 const userRouter = require("./routes/userRouter")
+const cartRouter = require("./routes/cartRouter")
 
 
 
@@ -15,6 +16,8 @@ app.use("/app/v1/products", productRouter)
 
 
 app.use("/app/v1/users", userRouter)
+
+app.use("/app/v1/carts", cartRouter)
 
 
 // // get all product

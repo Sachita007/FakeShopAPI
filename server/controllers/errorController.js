@@ -60,6 +60,7 @@ module.exports = (err, req, res, next) => {
     // }
 
     let error = { ...err }
+
     if (err.name === "ValidationError") {
         res.status(500).json({
             status: 'error',
@@ -67,7 +68,7 @@ module.exports = (err, req, res, next) => {
         });
     }
     if (err.name === 'CastError') error = handleCastErrorDB(error)
-    if (err.name === 'JsonWebTokenError') error = handleJWTError()
+    if (err.name === 'JsonWebTokenError') err = handleJWTError(err)
     if (err.name === 'TokenExpiredError') error = handleJWTExpiredError()
     sendErrorProd(err, res);
 };
