@@ -56,7 +56,7 @@ exports.updateProduct = tryCatch(async (req, res, next) => {
         runValidators: true
     })
     if (!product) {
-        console.log("no")
+       
         return next(new AppError("No product found with this id", 404))
     }
     res.status(200).json({
