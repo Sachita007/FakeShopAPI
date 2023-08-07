@@ -26,7 +26,7 @@ const Navbar = (props) => {
         
         <div className="flex font-bold text-2xl cursor-pointer items-center font-[Poppins] dark:text-white text-gray-800">
           <samp className='text-3xl text-indigo-600 mr-1 pt-2'><img className="w-7 md:w-10  mr-2" src={logo} alt="" /></samp>
-          <p className="text-[20px] mt-1 md:mt-0  md:text-3xl">FakeShopAPI</p>
+          <p className="text-[20px] mt-3 md:mt-2 md:ml-1  md:text-3xl">FakeShopAPI</p>
         </div>
 
         <div onClick={handleClick} className='text-3xl absolute right-8 top-6 cursor-pointer  dark:text-cyan-50 md:hidden '><ion-icon name={open?"close-outline":"menu-outline"}></ion-icon> </div>

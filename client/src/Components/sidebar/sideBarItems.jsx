@@ -7,7 +7,7 @@ let product = [
     {name:"Add product", link:"/"},
     {name:"Update product", link:"/"},
     {name:"Delete product", link:"/"},
-    {name:"product Filters", link:"/" , subArr:[{name:"Filter By Price", link:"/"},
+    {name:"Product Filters", link:"/" , subArr:[{name:"Filter By Price", link:"/"},
 {name:"Filter By Category", link:"/"},
 {name:"Pagination", link:"/"},
 {name:"Get Selected Fields", link:"/"},
