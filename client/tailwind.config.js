@@ -12,6 +12,7 @@ module.exports = {
       },
       fontFamily: {
         Rampart: ['Poppins', 'sans - serif'],
+        Roboto: ['Roboto', 'sans - serif']
       },
     },
   },

@@ -3,6 +3,7 @@ import Navbar from './components/navbar'
 
 import './App.css'
 import { useEffect, useState } from 'react'
+import DocPage from './pages/Doc/docPage';
 
 
 function App() {
@@ -22,13 +23,12 @@ function App() {
   
 
   return (
-    <>
+    <div className="flex flex-col">
     <Navbar themeCheck={theme}  handleSwitch={handleThemeSwitch}/>
-    <div className='bg-indigo-600 dark:bg-blue-400
-     w-full h-screen'>
-       
+    <div >
+    <DocPage/>
     </div>
-    </>
+    </div>
   )
 }
 
