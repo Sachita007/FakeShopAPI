@@ -6,7 +6,7 @@ import logo from './../assets/logo.png'
 const Navbar = (props) => {
   let links = [
     {name:"Home", link:"/"},
-    {name:"Docs", link:"/"},
+    {name:"Docs", link:"/docs"},
     {name:"GitHub", link:"/"},
     {name:"Contact ", link:"/"}
   ]
@@ -21,7 +21,7 @@ const Navbar = (props) => {
        setOpen(!open)
   }
   return (
-    <div className="shadow-md w-full top-0 left-0 dark:bg-gray-800  bg-white  ">
+    <div className="shadow-md w-full fixed top-0 left-0 z-10 dark:bg-gray-800  bg-white  ">
       <div className="md:flex items-center justify-between bg-inherit py-4 md:px-10 md:mx-11 px-7 ">
         
         <div className="flex font-bold text-2xl cursor-pointer items-center font-[Poppins] dark:text-white text-gray-800">
@@ -31,10 +31,10 @@ const Navbar = (props) => {
 
         <div onClick={handleClick} className='text-3xl absolute right-8 top-6 cursor-pointer  dark:text-cyan-50 md:hidden '><ion-icon name={open?"close-outline":"menu-outline"}></ion-icon> </div>
         
-        <ul className={`md:flex md:items-center md:pb-0 pb-0 absolute md:static md:z-auto  dark:bg-gray-800 bg-white left-0 w-full md:w-auto md:pl-0 pl-9 transition   duration-500 ${open?'top-19 z-20 ':'top-[-490px] '}`}>{
+        <ul className={`md:flex md:items-center md:pb-0 pb-0 absolute md:static md:z-auto  dark:bg-gray-800 bg-white left-0 w-full md:w-auto md:pl-0 pl-9  ${open?'top-19 z-20 ':'top-[-490px] '}`}>{
           links.map((link)=>(
             <li key={link.name} className="md:ml-8 text-xl md:my-0 my-7">
-              <a href={link.link} className="text-gray-800 dark:text-white dark:hover:text-slate-300 hover:text-gray-400 duration-500">{link.name} </a>
+              <a href={link.link} className="text-gray-800 dark:text-white dark:hover:text-slate-300 hover:text-gray-400 ">{link.name} </a>
             </li>
           ))
         }

@@ -46,7 +46,7 @@ class APIFeatures {
         // Link - base?fields=price,duration,difficulty ---for getting price ,duration and difficulty
         if (this.queryString.fields) {
             const fields = this.queryString.fields.split(',').join(' ').replace("isAdmin", "")
-            this.query = this.query.select(`${fields} -isAdmin`);
+            this.query = this.query.select(`${fields} `);
         } else {
             this.query = this.query.select('-__v -isAdmin')
         }

@@ -1,9 +1,10 @@
 
 import Navbar from './components/navbar'
-
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import './App.css'
 import { useEffect, useState } from 'react'
 import DocPage from './pages/Doc/docPage';
+import Home from './pages/home/Home';
 
 
 function App() {
@@ -23,12 +24,18 @@ function App() {
   
 
   return (
+    <Router>
     <div className="flex flex-col">
     <Navbar themeCheck={theme}  handleSwitch={handleThemeSwitch}/>
     <div >
-    <DocPage/>
+    <Routes>
+                <Route exact path='/' element={< Home />}></Route>
+                <Route exact path='/docs' element={< DocPage />}></Route>
+                
+    </Routes>
     </div>
     </div>
+    </Router>
   )
 }
 

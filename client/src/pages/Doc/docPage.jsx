@@ -7,7 +7,7 @@ import DocArea from "../../Components/docArea/DocArea"
 const DocPage =() =>{
    
   return (
-    <div className='flex'>
+    <div className='flex mt-[4.7rem]'>
         
         <Sidebar />
         <div className=" dark:bg-slate-600 w-full  overflow-y-auto h-screen dark:text-white ">
