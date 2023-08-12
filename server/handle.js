@@ -8,7 +8,7 @@ const fs = require('fs');
 
 main().catch(err => console.log(err));
 async function main() {
-    await mongoose.connect("mongodb://127.0.0.1:27017/FakeShop").then(() => {
+    await mongoose.connect("mongodb+srv://sachita:sachita@cluster0.5ljqocp.mongodb.net/FakeShopApi?retryWrites=true&w=majority").then(() => {
         console.log("Connected")
     })
 
