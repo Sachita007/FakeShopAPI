@@ -1,6 +1,8 @@
 import DocArea from "../../Components/docArea/DocArea";
+import Code from "../../Components/code/code";
+import Response from "../../Components/code/response";
 
-let product = [
+let product = 
   [
     {
       name: "Get all product",
@@ -8,8 +10,8 @@ let product = [
       id: "getAllProduct",
       req: "Get",
       endPoint: "app/v1/products",
-      description:"You can access the list of more then 200 products by using the <span className='bg-black text-white py-1 px-2 rounded-sm'>/products</span> endpoint.",
-      response:`{
+      description:<span>You can access the list of more then 200 products by using the <span className='bg-black text-white py-1 px-2 rounded-sm'>/products</span> endpoint</span>,
+      response:{
     "status": "success",
     "count": 50,
     "Data": [
@@ -139,16 +141,16 @@ let product = [
                     "value": "Gentle Machine Wash in Lukewarm Water, Do Not Bleach"
                 }
             ]
-        }]`
-    },
+        }
+  ]}},
     {
       name: "Get one product",
-      link: "/",
+      link: "/product/getOneProduct",
       id: "getOneProduct",
       req: "Get",
       endPoint: "app/v1/products/64c9dab8e1ffe09097e0b844",
-      description:`You can get a single product by adding the <span className='bg-black text-white py-1 px-2 rounded-sm'>id</span> as a parameter: <span className='bg-black text-white py-1 px-2 rounded-sm'>/products/<id></span>`,
-      response:`{
+      description:<span>You can get a single product by adding the <span className='bg-black text-white py-1 px-2 rounded-sm'>id</span> as a parameter: <span className='bg-black text-white py-1 px-2 rounded-sm'>/products/:id</span></span>,
+      response:{
     "status": "success",
     "data": {
         "_id": "64c9dab8e1ffe09097e0b844",
@@ -214,7 +216,7 @@ let product = [
         ],
         "__v": 0
     }
-}`
+}
     },
 
     {
@@ -222,9 +224,9 @@ let product = [
       link: "/",
       id: "addProduct",
       req: "Post",
-      description:"You can create a new product by sending an object like the following to <span className='bg-black text-white py-1 px-2 rounded-sm'>/products</span>.",
+      description:<span>You can create a new product by sending an object like the following to <span className='bg-black text-white py-1 px-2 rounded-sm'>/products</span>.</span>,
       endPoint: "app/v1/products",
-      body: `{ 
+      body: { 
             "name": "Test",
             "category": [
                 "clothing"
@@ -242,8 +244,8 @@ let product = [
                     "key": "Number of Contents in Sales Package",
                     "value": "Pack of 3"
                 }
-            ]}`,
-      response: `{
+            ]},
+      response: {
     "status": "success",
     "data": {
         "name": "Test",
@@ -268,7 +270,7 @@ let product = [
         "_id": "64d160a9ca0630131a60e7d7",
         "__v": 0
     }
-}`,
+},
     },
 
     {
@@ -276,12 +278,12 @@ let product = [
       link: "/",
       id: "updateProduct",
       req: "Patch",
-      description:"You can update a product by sending an object like the following and adding the <span className='bg-black text-white py-1 px-2 rounded-sm'>id</span> as a parameter: <span className='bg-black text-white py-1 px-2 rounded-sm'>/products/<id></span>",
+      description:<span>You can update a product by sending an object like the following and adding the <span className='bg-black text-white py-1 px-2 rounded-sm'>id</span> as a parameter: <span className='bg-black text-white py-1 px-2 rounded-sm'>/products/:id</span></span>,
       endPoint: "app/v1/products/64d160a9ca0630131a60e7d7",
       body: `{
     "name":"Test Updated"
 }`,
-      response: `{
+      response: {
     "status": "success",
     "data": {
         "_id": "64d160a9ca0630131a60e7d7",
@@ -305,16 +307,16 @@ let product = [
         ],
         "__v": 0
     }
-}`,
+},
     },
     {
       name: "Delete product",
       link: "/",
       id: "deleteProduct",
       req: "Delete",
-      description:"You can delete a product by sending an object like the following and adding the <span className='bg-black text-white py-1 px-2 rounded-sm'>id</span> as a parameter: <span className='bg-black text-white py-1 px-2 rounded-sm'>/products/<id></span>",
+      description:<span>You can delete a product by sending an object like the following and adding the <span className='bg-black text-white py-1 px-2 rounded-sm'>id</span> as a parameter: <span className='bg-black text-white py-1 px-2 rounded-sm'>/products/:id</span></span>,
       endPoint: "app/v1/products/64d160a9ca0630131a60e7d7",
-      response:`{
+      response:{
     "status": "success",
     "deleted": {
         "_id": "64d160a9ca0630131a60e7d7",
@@ -338,12 +340,12 @@ let product = [
         ],
         "__v": 0
     }
-}`
-    },
-    {
-      name: "Product Filters",
-      link: "/",
-      subArr: [
+}
+    }
+  ]
+
+const productFilters = 
+    [
         { name: "Filter By Price", link: "/", id: "productFilter" },
         {
           name: "Filter By Category",
@@ -372,7 +374,7 @@ let product = [
           id: "getSelectedFields",
           req: "Get",
           endPoint: "app/v1/products?fields=name,price",
-          response:`{
+          response:{
     "status": "success",
     "count": 3,
     "Data": [
@@ -390,8 +392,8 @@ let product = [
             "_id": "64c9dab8e1ffe09097e0b824",
             "name": "dongli Printed Boy's Round Neck T-Shirt",
             "price": 2400
-        }]`
-        },
+        }]
+        }},
         {
           name: "Sort product",
           link: "/",
@@ -399,12 +401,36 @@ let product = [
           req: "Get",
           endPoint: "app/v1/products?sort=price",
         },
-      ],
-    },
-  ],
-];
+      ]
+    
 const Product = () => {
-  return <div>Product</div>;
+  return <div>
+    <div id="product" className="text-[3rem] text-gray-700 dark:text-slate-300 font-bold font-Roboto mt-5"><span>Product</span></div>
+    
+    {product.map((item)=>(
+        <div key={item.id} id={item.id}>
+        <div className="text-[2rem] text-gray-700 dark:text-slate-300 font-bold font-Roboto mt-5"><span>{item.name}</span></div>
+        <div className="text-[1rem] font-normal dark:text-slate-300 text-gray-600 font-Roboto mt-3 mb-4"><span>{item.description}</span></div>
+        <span className='text-[1.2rem] font-semibold font-Roboto mb-4'>Request:</span>
+        <Code req={item.req}  endpoint={item.endPoint} />
+        <span className='text-[1.2rem] font-semibold font-Roboto mb-4'>Response:</span>
+        {item?.response?<Response data={item?.response} />:<></>}
+        </div>
+    ))}
+    <div id="productFilters" className="text-[3rem] text-gray-700 dark:text-slate-300 font-bold font-Roboto mt-5"><span>Product Filters</span></div>
+    {
+        productFilters.map((item)=>(
+            <div key={item.id} id={item.id}>
+        <div className="text-[2rem] text-gray-700 dark:text-slate-300 font-bold font-Roboto mt-5"><span>{item.name}</span></div>
+        <div className="text-[1rem] font-normal dark:text-slate-300 text-gray-600 font-Roboto mt-3 mb-4"><span>{item?.description}</span></div>
+        <span className='text-[1.2rem] font-semibold font-Roboto mb-4'>Request:</span>
+        <Code req={item.req}  endpoint={item.endPoint} />
+        
+        {item?.response?<div><span className='text-[1.2rem] font-semibold font-Roboto mb-4'>Response:</span><Response data={item?.response} /></div>:<></>}
+        </div>
+        ))
+    }
+  </div>;
 };
 
 export default Product;

@@ -2,12 +2,12 @@
 import Item from './item'
 
 let product = [
-    {name:"Get all product", link:"/"},
-    {name:"Get onr product", link:"/"},
+    {name:"Get all product", link:"#getAllProduct"},
+    {name:"Get one product", link:"#getOneProduct"},
     {name:"Add product", link:"/"},
     {name:"Update product", link:"/"},
     {name:"Delete product", link:"/"},
-    {name:"Product Filters", link:"/" , subArr:[{name:"Filter By Price", link:"/"},
+    {name:"Product Filters", link:"#productFilters" , subArr:[{name:"Filter By Price", link:"/"},
 {name:"Filter By Category", link:"/"},
 {name:"Pagination", link:"/"},
 {name:"Get Selected Fields", link:"/"},
@@ -38,6 +38,7 @@ let Cart = [
 const siderbar=()=> {
   return (
     <div>
+         <Item title="Introduction" array={[]}/>
          <Item title="Product" array={product}/>
          <Item title="User" array={user}/>
          <Item title="Auth" array={Auth}/>

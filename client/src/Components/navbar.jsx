@@ -1,14 +1,15 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react'
 import logo from './../assets/logo.png'
+import { NavLink } from 'react-router-dom'
 
 
 const Navbar = (props) => {
   let links = [
     {name:"Home", link:"/"},
     {name:"Docs", link:"/docs"},
-    {name:"GitHub", link:"/"},
-    {name:"Contact ", link:"/"}
+    {name:"GitHub", link:"https://github.com/Sachita007/FakeShopAPI"},
+    {name:"Contact ", link:"/contact"}
   ]
   let [open, setOpen] = useState (false)
   let [dark,setDark] =useState(true)
@@ -34,7 +35,11 @@ const Navbar = (props) => {
         <ul className={`md:flex md:items-center md:pb-0 pb-0 absolute md:static md:z-auto  dark:bg-gray-800 bg-white left-0 w-full md:w-auto md:pl-0 pl-9  ${open?'top-19 z-20 ':'top-[-490px] '}`}>{
           links.map((link)=>(
             <li key={link.name} className="md:ml-8 text-xl md:my-0 my-7">
-              <a href={link.link} className="text-gray-800 dark:text-white dark:hover:text-slate-300 hover:text-gray-400 ">{link.name} </a>
+              <NavLink to={link.link} 
+              className={({isActive})=>{
+                return ('' +(!isActive? 'text-gray-800  dark:text-white dark:hover:text-blue-300 hover:text-blue-300':' text-blue-400'));
+              }}
+              >{link.name} </NavLink>
             </li>
           ))
         }
