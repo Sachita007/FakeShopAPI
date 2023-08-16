@@ -4,41 +4,47 @@ import Item from './item'
 let product = [
     {name:"Get all product", link:"#getAllProduct"},
     {name:"Get one product", link:"#getOneProduct"},
-    {name:"Add product", link:"/"},
-    {name:"Update product", link:"/"},
-    {name:"Delete product", link:"/"},
-    {name:"Product Filters", link:"#productFilters" , subArr:[{name:"Filter By Price", link:"/"},
-{name:"Filter By Category", link:"/"},
-{name:"Pagination", link:"/"},
-{name:"Get Selected Fields", link:"/"},
-{name:"Sort product", link:"/"}]}
+    {name:"Add product", link:"#addProduct"},
+    {name:"Update product", link:"#updateProduct"},
+    {name:"Delete product", link:"#deleteProduct"},
+    {name:"Product Filters", link:"#productFilters" , subArr:[
+{name:"Filter By Category", link:"#filterByCategory"},
+{
+          name: "Filter By Price",
+          
+          link: "#filterByPrice"
+         
+          
+        },
+{name:"Pagination", link:"#pagination"},
+{name:"Get Selected Fields", link:"#getSelectedFields"},
+{name:"Sort product", link:"#sortProduct"}]}
 ]
 
 let user = [
-    {name:"Get all user", link:"/"},
-    {name:"Get onr user", link:"/"},
-    {name:"Add user", link:"/"},
-    {name:"Update user", link:"/"},
-    {name:"Delete user", link:"/"},
-    {name:"product Filters", link:"/"}
+    {name:"Get all user", link:"#getAllUser"},
+    {name:"Get one user", link:"#getOneUser"},
+    {name:"Add user", link:"#addUser"},
+    {name:"Update user", link:"#updateUser"},
+    {name:"Delete user", link:"#deleteUser"}
 ]
 let Auth = [
-    {name:"LogIn", link:"/"},
-    {name:"Get Profile With Session", link:"/"}
+    {name:"LogIn", link:"#logIn"},
+    {name:"Get Profile With Session", link:"#getProfile"}
 ]
 
 let Cart = [
-    {name:"Get all product", link:"/"},
-    {name:"Get onr product", link:"/"},
-    {name:"Add product", link:"/"},
-    {name:"Update product", link:"/"},
-    {name:"Delete product", link:"/"},
-    {name:"product Filters", link:"/"}
+    {name:"Get all Cart", link:"#getAllCart"},
+    {name:"Get Cart By User id", link:"#getOneCart"},
+    {name:"Add Cart", link:"#addCart"},
+    {name:"Update Cart", link:"#updateCart"},
+    {name:"Delete Item", link:"#deleteItem"},
+    {name:"Delete Cart", link:"#deleteCart"}
 ]
 const siderbar=()=> {
   return (
     <div>
-         <Item title="Introduction" array={[]}/>
+         
          <Item title="Product" array={product}/>
          <Item title="User" array={user}/>
          <Item title="Auth" array={Auth}/>

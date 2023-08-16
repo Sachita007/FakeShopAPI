@@ -2,12 +2,13 @@
 import shop from "./../../assets/shop.png"
 import {LuGithub,LuBook} from "react-icons/lu"
 import { Link } from "react-router-dom"
+import Footer from "../../Components/footer"
 
 
 
 function Home() {
   return (
-    <div className="dark:bg-slate-600  w-full  mt-10 dark:text-white">
+    <div className="dark:bg-gray-900  w-full  mt-10 dark:text-white">
       <div className="grid grid-cols-1 sm:grid-flow-cols-2 md:grid-cols-2">
         <div className="flex flex-col font-Roboto md:col-auto col-start-1 ml-[2rem]  md:ml-[5rem] mt-[8rem]">
             <div className="md:text-[4rem] sm:text-[3rem] text-[2rem]  font-Roboto font-bold mb-5">
@@ -34,6 +35,7 @@ function Home() {
        <span className="text-[.9rem] sm:text-[1rem] md:text-[1rem] mt-7  mb-7  md:px-11 font-Rampart md:w-auto text-center text-slate-500 dark:text-slate-300">Get tired of Lorem ipsum data? Didn't find any free e-commerce API? Look no further! FakeShopAPI is a free online REST API that you can use whenever you need pseudo-real data for your e-commerce or shopping website without running any server-side code. It's perfect for teaching, creating sample codes, tests, and more.</span>
       </div>
       </div>
+      <Footer/>
     </div>
   )
 }

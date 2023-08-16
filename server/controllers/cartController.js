@@ -158,7 +158,6 @@ exports.deleteItem = tryCatch(async (req, res, next) => {
 
     res.status(201).json({
       status: "success",
-      data: updated,
     });
   }
 });
@@ -177,6 +176,5 @@ exports.deleteCart = tryCatch(async (req, res, next) => {
 
   res.status(201).json({
     status: "success",
-    data: updated,
   });
 });

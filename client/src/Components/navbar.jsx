@@ -2,9 +2,10 @@
 import { useState } from 'react'
 import logo from './../assets/logo.png'
 import { NavLink } from 'react-router-dom'
+import { useEffect } from 'react'
 
 
-const Navbar = (props) => {
+const Navbar = () => {
   let links = [
     {name:"Home", link:"/"},
     {name:"Docs", link:"/docs"},
@@ -12,12 +13,28 @@ const Navbar = (props) => {
     {name:"Contact ", link:"/contact"}
   ]
   let [open, setOpen] = useState (false)
-  let [dark,setDark] =useState(true)
+ const [theme, setTheme] = useState(null);
 
-  const handleDarkMode = ()=>{
-    setDark(props.themeCheck==="dark"?true:false)
-    props.handleSwitch()
-  }
+  useEffect(()=>{
+    if(window.matchMedia( '(prefers-color-scheme: dark)').matches){
+      setTheme('dark');
+    }
+    else{
+      setTheme('light')
+    }
+  }, [])
+
+  useEffect(() => {
+    if (theme === "dark") {
+      window.document.body.classList.add("dark");
+    } else {
+      window.document.body.classList.remove("dark");
+    }
+  }, [theme]);
+
+  const handleThemeSwitch = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
   const handleClick = ()=>{
        setOpen(!open)
   }
@@ -44,8 +61,8 @@ const Navbar = (props) => {
           ))
         }
         </ul> 
-        <div onClick={handleDarkMode} className={`text-2xl absolute md:right-8 dark:text-white right-[5rem] cursor-pointer items-center  top-[26px] transition-all duration-500 `}> 
-        <ion-icon className="transition-all duration-500 ease-in" name={dark?"moon":"sunny"}></ion-icon>
+        <div onClick={handleThemeSwitch} className={`text-2xl absolute md:right-8 dark:text-white right-[5rem] cursor-pointer items-center  top-[26px] transition-all duration-500 `}> 
+        <ion-icon className="transition-all duration-500 ease-in" name={theme=='dark'?'sunny':'moon'}></ion-icon>
         </div>      
       </div>
     </div>
