@@ -6,7 +6,10 @@ const APIFeatures = require("./../utils/apiFeatures");
 
 // Get All Cart
 exports.getAllCart = tryCatch(async (req, res, next) => {
-  const cart = await Cart.find({}, { _id: 0, "items._id": 0 });
+  const query = (await Cart.find({}, { _id: 0, "items._id": 0 })).select(
+    "-edit"
+  );
+  const cart = await query;
   res.status(200).json({
     status: "success",
     count: cart.length,
@@ -16,10 +19,11 @@ exports.getAllCart = tryCatch(async (req, res, next) => {
 
 //Get Cart By UserId
 exports.getCart = tryCatch(async (req, res, next) => {
-  const cart = await Cart.findOne(
+  const query = Cart.findOne(
     { userId: req.params.id },
     { _id: 0, "items._id": 0 }
-  );
+  ).select("-edit");
+  const cart = await query;
   if (!cart) {
     return next(new AppError("No cart found with this id", 404));
   }
@@ -43,6 +47,14 @@ exports.addCart = tryCatch(async (req, res, next) => {
       data: newCart,
     });
   } else {
+    if (cart?.edit == "false") {
+      return next(
+        new AppError(
+          "Unauthorized:You not authorized to add item cart of this user. Please create your own cart",
+          401
+        )
+      );
+    }
     const updatedItems = cart.items.filter(
       (item) => item.productId.toString() == req.body.item.productId
     );
@@ -58,18 +70,17 @@ exports.addCart = tryCatch(async (req, res, next) => {
         { new: true }
       );
     } else {
-      console.log("in2");
-      console.log(updatedItems);
       quantity = updatedItems[0].quantity + 1;
       console.log(quantity);
-      updated = await Cart.findOneAndUpdate(
+      const query = Cart.findOneAndUpdate(
         { userId: req.params.id, "items.productId": req.body.item.productId },
         {
           $set: { "items.$.quantity": quantity },
           $inc: { total: req.body.item.price },
         },
         { new: true }
-      );
+      ).select("-edit");
+      updated = await query;
     }
 
     res.status(201).json({
@@ -81,10 +92,20 @@ exports.addCart = tryCatch(async (req, res, next) => {
 
 // edit cart
 exports.editCart = tryCatch(async (req, res, next) => {
+  const cart = await Cart.findOne({ userId: req.params.id });
+  if (cart?.edit == "false") {
+    return next(
+      new AppError(
+        "Unauthorized:You not authorized to add item cart of this user. Please create your own cart",
+        401
+      )
+    );
+  }
+
   if (!req.body.item.productId) {
     return next(new AppError("Please provide productId also", 404));
   }
-  const cart = await Cart.findOne({ userId: req.params.id });
+
   if (!cart) {
     return next(new AppError("No cart found with this id", 404));
   } else {
@@ -112,12 +133,13 @@ exports.editCart = tryCatch(async (req, res, next) => {
         updatedArry.push(element);
       }
     });
-    updated = await Cart.findOneAndUpdate(
+    const query = Cart.findOneAndUpdate(
       { userId: req.params.id, "items.productId": req.body.item.productId },
       { $set: { items: updatedArry, total: price } },
       { new: true }
-    );
+    ).select("edit");
 
+    updated = await query;
     res.status(201).json({
       status: "success",
       data: updated,
@@ -127,10 +149,19 @@ exports.editCart = tryCatch(async (req, res, next) => {
 
 // delet item from cart
 exports.deleteItem = tryCatch(async (req, res, next) => {
+  const cart = await Cart.findOne({ userId: req.params.id });
+  if (cart?.edit == "false") {
+    return next(
+      new AppError(
+        "Unauthorized:You not authorized to delete item from  cart of this user. Please create your own cart",
+        401
+      )
+    );
+  }
   if (!req.params.productId) {
     return next(new AppError("Please provide productId also", 404));
   }
-  const cart = await Cart.findOne({ userId: req.params.id });
+
   if (!cart) {
     return next(new AppError("No cart found with this id", 404));
   } else {
@@ -168,6 +199,14 @@ exports.deleteItem = tryCatch(async (req, res, next) => {
 // Delete Cart
 exports.deleteCart = tryCatch(async (req, res, next) => {
   const cart = await Cart.findOne({ userId: req.params.id });
+  if (cart?.edit == "false") {
+    return next(
+      new AppError(
+        "Unauthorized:You not authorized to delete this  cart of this user. Please create your own cart",
+        401
+      )
+    );
+  }
   if (!cart) {
     return next(new AppError("No cart found with this id", 404));
   }
