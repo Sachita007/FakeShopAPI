@@ -23,7 +23,8 @@ exports.getAllProduct = tryCatch(async (req, res) => {
 // Get Product By Id
 exports.getProduct = tryCatch(async (req, res, next) => {
   const id = req.params.id;
-  const product = await Product.findById(id);
+  const query = Product.findById(id).select("-edit");
+  const product = await query;
   if (!product) {
     return next(new AppError("No product found with this id", 404));
   }

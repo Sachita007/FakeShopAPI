@@ -6,9 +6,7 @@ const APIFeatures = require("./../utils/apiFeatures");
 
 // Get All Cart
 exports.getAllCart = tryCatch(async (req, res, next) => {
-  const query = (await Cart.find({}, { _id: 0, "items._id": 0 })).select(
-    "-edit"
-  );
+  const query = Cart.find({}, { _id: 0, "items._id": 0 }).select("-edit");
   const cart = await query;
   res.status(200).json({
     status: "success",

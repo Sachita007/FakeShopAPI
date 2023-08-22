@@ -1,8 +1,6 @@
 ## ![FakeShopAPI](./static-file/hero.png.png)
 
----
-
-###FakeShopAPI
+### FakeShopAPI
 
 [FakeShopAPI](https://fake-shopapi.netlify.app) is a free online REST API that you can use whenever you need Pseudo-real data for
 your e-commerce or shopping website without running any server-side code.

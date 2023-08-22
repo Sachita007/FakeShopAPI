@@ -47,7 +47,7 @@ class APIFeatures {
         .replace("isAdmin", "");
       this.query = this.query.select(`${fields} `);
     } else {
-      this.query = this.query.select("-__v -isAdmin");
+      this.query = this.query.select("-__v -isAdmin -edit");
     }
     return this;
   }
