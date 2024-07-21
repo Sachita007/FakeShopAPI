@@ -5,7 +5,9 @@ const globalErrorHandler = require('./controllers/errorController')
 const productRouter = require("./routes/productRouter")
 const userRouter = require("./routes/userRouter")
 const cartRouter = require("./routes/cartRouter")
+const cors = require('cors')
 
+app.use(cors())
 
 
 
