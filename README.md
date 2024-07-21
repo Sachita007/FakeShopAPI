@@ -19,10 +19,10 @@ so I decided to create this simple web service with NodeJs(express) and MongoDB 
 
 There are 4 main resources need in shopping prototypes:
 
-- Products http://fake-shop-api.ap-south-1.elasticbeanstalk.com/app/v1/products
-- Carts http://fake-shop-api.ap-south-1.elasticbeanstalk.com/app/v1/carts
-- Users http://fake-shop-api.ap-south-1.elasticbeanstalk.com/app/v1/users
-- Auth http://fake-shop-api.ap-south-1.elasticbeanstalk.com/app/v1/auth/login
+- Products https://fakeshopapi-l2ng.onrender.com/app/v1/products
+- Carts https://fakeshopapi-l2ng.onrender.com/app/v1/carts
+- Users https://fakeshopapi-l2ng.onrender.com/app/v1/users
+- Auth https://fakeshopapi-l2ng.onrender.com/app/v1/auth/login
 
 ## How to
 
@@ -31,19 +31,19 @@ you can fetch data with any kind of methods you know(fetch API, Axios, jquery aj
 ### Get all products
 
 ```js
-[GET] "http://fake-shop-api.ap-south-1.elasticbeanstalk.com/app/v1/products")
+[GET] "https://fakeshopapi-l2ng.onrender.com/app/v1/products")
 ```
 
 ### Get a single product
 
 ```js
-[GET] "http://fake-shop-api.ap-south-1.elasticbeanstalk.com/app/v1/products/:id"
+[GET] "https://fakeshopapi-l2ng.onrender.com/app/v1/products/:id"
 ```
 
 ### Add new product
 
 ```js
-[POST] "http://fake-shop-api.ap-south-1.elasticbeanstalk.com/app/v1/products"
+[POST] "https://fakeshopapi-l2ng.onrender.com/app/v1/products"
 
        Body = {
                 "name": "Test",
@@ -100,7 +100,7 @@ you can fetch data with any kind of methods you know(fetch API, Axios, jquery aj
 ### Updating a product
 
 ```js
-[PATCH] "http://fake-shop-api.ap-south-1.elasticbeanstalk.com/app/v1/products/64d160a9ca0630131a60e7d7"
+[PATCH] "https://fakeshopapi-l2ng.onrender.com/app/v1/products/64d160a9ca0630131a60e7d7"
 
        Body = {
                 "name": "Test Updated",
@@ -140,7 +140,7 @@ Note: You not able to update all product. First you have to create your own Prod
 ### Deleting a product
 
 ```js
-[DELETE] "http://fake-shop-api.ap-south-1.elasticbeanstalk.com/app/v1/products/:id"
+[DELETE] "https://fakeshopapi-l2ng.onrender.com/app/v1/products/:id"
 ```
 
 Note: You not able to delete all product. First you have to create your own Product to delete it.
@@ -152,7 +152,7 @@ You can use query string to limit results or sort by price using \-\|\+ \(ascend
 ```js
 // Get 3 products sorted according to price in ascending order.
 
-[GET] "http://fake-shop-api.ap-south-1.elasticbeanstalk.com/app/v1/products?limit=3&sort=price"
+[GET] "https://fakeshopapi-l2ng.onrender.com/app/v1/products?limit=3&sort=price"
 ```
 
 # All available routes
